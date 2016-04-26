@@ -1,10 +1,11 @@
 # CrashDemo
-自己写代码捕获异常信息,将捕获到的异常信息在下次联网的时候发给后台
+自己写代码捕获异常信息,将捕获到的异常信息在下次联网的时候发给后
+
 1)将UncaughtExceptionHandler1.h UncaughtExceptionHandler1.m 文件拖到项目中
+
 2)AppDelegate.m 中
 
 #import "UncaughtExceptionHandler1.h"
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     //调用这个函数就可以收集崩溃信息
@@ -12,7 +13,9 @@
 
     return YES;
 }
-3)ViewController.m 
+
+3)ViewController.m中 [dict setObject:nil forKey:@"kong"];制造崩溃信息
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -20,7 +23,9 @@
     //这里打开就可以看到控制台输出异常信息
 //    [dict setObject:nil forKey:@"kong"];
 }
+
 4)异常信息输出
+
 2016-04-26 11:53:53.941 CrashDemo[1758:465788] 异常信息
 
 *** setObjectForKey: object cannot be nil (key: kong)(
